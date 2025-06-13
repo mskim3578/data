@@ -106,3 +106,91 @@ loss='categorical_crossentropy'  : 손실함수 종류.
             => 활성화함수 : sigmoid 와 보통 같이 사용됨
 metrics=['acc'] : 평가지표.            
 '''
+
+# 4-1  학습하기
+history=model.fit(x_train,y_train,epochs=30,batch_size=127,
+                  validation_data=(x_val,y_val))
+
+
+
+# 5. 검증
+history.history["loss"] #훈련데이터 손실함수값
+len(history.history["loss"])
+history.history["acc"] #훈련데이터 정확도
+history.history["val_loss"] #검증데이터 손실함수값
+history.history["val_acc"] #검증데이터 정확도값
+
+
+his_dict = history.history
+loss = his_dict['loss']  #훈련데이터 학습시 손실함수값
+val_loss = his_dict['val_loss'] #검증데이터 학습시 손실함수값
+epochs = range(1, len(loss) + 1) #1 ~ 30까지의 숫자
+fig = plt.figure(figsize = (10, 5))
+ax1 = fig.add_subplot(1, 2, 1) #1행2열의 1번째 그래프영역
+ax1.plot(epochs, loss, color = 'blue', label = 'train_loss')
+ax1.plot(epochs, val_loss, color = 'orange', label = 'val_loss')
+ax1.set_title('train and val loss')
+ax1.set_xlabel('epochs')
+ax1.set_ylabel('loss')
+ax1.legend() 
+#정확도 그래프
+acc = his_dict['acc'] #훈련데이터 정확도값
+val_acc = his_dict['val_acc'] #검증데이터 정확도값
+ax2 = fig.add_subplot(1, 2, 2) #1행2열의 2번째 그래프 영역
+ax2.plot(epochs, acc, color = 'blue', label = 'train_acc')
+ax2.plot(epochs, val_acc, color = 'orange', label = 'val_acc')
+ax2.set_title('train and val acc')
+ax2.set_xlabel('epochs')
+ax2.set_ylabel('acc')
+ax2.legend() 
+plt.show()
+
+'''
+   과적합현상 발생 : 훈련을 너무 많이함.
+            훈련을 해도 검증 데이터의 평가지수가 개선 안됨.
+'''
+loss[29]     #0.00736351078376174
+val_loss[29] #0.14246465265750885
+acc[29]      #0.9978333115577698
+val_acc[29]  #0.9711111187934875
+#모델 평가
+#[0.13174931704998016, 0.9735000133514404]
+#[손실함수값, 정확도]
+model.evaluate(x_test,y_test) 
+
+# 6 예측
+results = model.predict(x_test)
+
+
+
+tempimg = x_test[300].reshape(28,28)
+tempimg
+im = Image.fromarray(tempimg)
+im.save("data/num300.jpg", "jpeg")   
+
+#read image 예측
+readimage = Image.open('data/num300.jpg')  #2
+numpyimage = np.asarray(readimage) 
+
+#numpy shape setting
+numpyimage.shape
+normalimage=numpyimage/255  # 정규화화
+
+numpyimage=numpyimage.reshape(1,28*28)   # predict 파라메타를 위한 shape 적용
+
+#predict를 위한자료로 reshape  (1, 784)
+
+onetest = model.predict(numpyimage) 
+
+
+np.argmax(onetest,axis=1)[0] #2
+plt.imshow(numpyimage.reshape(28, 28)) #2차원배열. 그래프
+plt.show()   #이미지 view
+
+
+
+
+
+
+
+
