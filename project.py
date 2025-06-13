@@ -38,4 +38,13 @@ tempimg
 im = Image.fromarray(tempimg)
 im.save("data/num.jpg", "jpeg")   
 
-    
+#0~59999 사이의 임의의 수 3개
+random_idx = np.random.randint(60000,size=3) 
+for idx in random_idx :
+    img = x_train[idx,:]
+    label=y_train[idx] 
+    plt.figure()
+    plt.imshow(img)  #이미지 보기기
+    plt.title\
+  ('%d-th data, label is %d' % (idx,label),fontsize=15)
+plt.show()      
