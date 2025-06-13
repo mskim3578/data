@@ -48,3 +48,22 @@ for idx in random_idx :
     plt.title\
   ('%d-th data, label is %d' % (idx,label),fontsize=15)
 plt.show()      
+
+
+# 2-1데이터 정규화
+'''
+  MinMax normalization : X = (x-min)/(max-min)
+  Robust mormalization : X=(x-중간값)/(3분위값-1분위값)
+  Standardization      : X=x-평균값/표준편차
+'''
+x_train[0]
+#MinMax normalization 정규화
+#현재데이터 : min:0, max=255
+x_train = (x_train.reshape(42000,28*28))/255 
+x_val = (x_val.reshape(18000,28*28))/255
+x_test = (x_test.reshape(10000,28*28))/255
+x_train[0]
+x_train.shape #(42000, 784)
+x_val.shape   #(18000, 784)
+x_test.shape  #(10000, 784)
+y_train[:10]
