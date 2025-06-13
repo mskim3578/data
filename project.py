@@ -47,9 +47,16 @@ for idx in random_idx :
     plt.imshow(img)  #이미지 보기기
     plt.title\
   ('%d-th data, label is %d' % (idx,label),fontsize=15)
-plt.show()      
+plt.show()     
 
 
+### 2 데이터 전처리
+#검증데이터 생성 : 학습 중간에 평가를 위한 데이터  
+x_train,x_val,y_train,y_val = train_test_split\
+    (x_train,y_train,test_size=0.3, random_state=777) 
+    
+    
+    
 # 2-1데이터 정규화
 '''
   MinMax normalization : X = (x-min)/(max-min)
@@ -67,3 +74,20 @@ x_train.shape #(42000, 784)
 x_val.shape   #(18000, 784)
 x_test.shape  #(10000, 784)
 y_train[:10]
+
+# 2-2  레이블 전처리:one-hot 인코딩하기 multi classfication
+
+y_train=to_categorical(y_train)
+y_train[:10]
+y_val=to_categorical(y_val)
+y_test=to_categorical(y_test)
+
+
+
+# 3 학습 모델 구성하기
+
+model = Sequential()  #모델 생성
+model.add(Dense(64,activation="relu",input_shape=(784,)))
+model.add(Dense(32,activation="relu"))
+model.add(Dense(10,activation="softmax"))
+
