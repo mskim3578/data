@@ -91,3 +91,18 @@ model.add(Dense(64,activation="relu",input_shape=(784,)))
 model.add(Dense(32,activation="relu"))
 model.add(Dense(10,activation="softmax"))
 
+model.compile(optimizer="adam", loss='categorical_crossentropy',
+              metrics=['acc'])
+
+'''
+optimizer="adam" : 경사하강법 알고리즘 이름.
+                   Adam 클래스로도 가능 => import 해야함
+loss='categorical_crossentropy'  : 손실함수 종류. 
+                   label(정답) ont-hot 인코딩 되어야함                  
+     mse : 평균제곱오차.
+     categorical_crossentropy : 다중분류에서 사용되는 손실함수
+            => 활성화함수 : softmax 와 보통 같이 사용됨
+     binary_crossentropy : 이진분류에서 사용되는 손실함수
+            => 활성화함수 : sigmoid 와 보통 같이 사용됨
+metrics=['acc'] : 평가지표.            
+'''
