@@ -1,4 +1,23 @@
-
+##################################################
+# titanic 데이터셋 연습(데이터 전처리)
+# seaborn 모듈에 저장된 데이터
+'''
+survived	생존여부
+pclass	좌석등급 (숫자)
+sex	성별 (male, female)
+age	나이
+sibsp	형제자매 + 배우자 인원수
+parch: 	부모 + 자식 인원수
+fare: 	요금
+embarked	탑승 항구
+class	좌석등급 (영문)
+who	성별 (man, woman)
+adult_male 성인남자여부 
+deck	선실 고유 번호 가장 앞자리 알파벳
+embark_town	탑승 항구 (영문)
+alive	생존여부 (영문)
+alone	혼자인지 여부
+'''
 
 pandas 모듈
  - 표형태(행:index,열:columns)의 데이터를 처리하기 위한 모듈
