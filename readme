@@ -1,3 +1,65 @@
+'''
+  데이터 전처리 : 원본데이터를 원하는 형태로 변경 과정. 
+    1. 결측값 처리 : 값이 없는 경우.
+        - isnull() : 결측값인 경우 True, 일반값인 경우 False
+        - notnull() : 결측값인 경우 False, 일반값인 경우 True
+        - dropna() : 결측값 제거 함수
+              dropna(axis=1,thresh=500) : 결측값아닌 커럼이 이 500개 미만인  컬럼 제거
+              dropna(subset=[컬럼명],how=any/all, axis=0) :결측값을 가지고 있는 행 제거
+                                              any:한개라도 결측값.
+                                              all:모두 결측값
+        - fillna() :결측값 치환
+           fillna(치환값,inplace=True)
+           fillna(방법,inplace=True) : method="ffill"/"bfill" :앞의값/뒤의값
+           
+    2. 중복데이터 처리 
+       - duplicated() : 중복데이터 찾기. 첫번째 데이터는 False, 
+                        같은 데이터인 경우 두번째 True       
+       - drop_duplicates() : 중복데이터를 제거. 중복된 데이터 중 한개는 남김.
+
+    3. 새로운 컬럼 생성
+       - df[컬럼명] : 컬럼명이 없는 경우 생성, 있으면 수정.
+       - round(자리수) : 반올림.    
+
+    4. 오류데이터 존재.
+       - 결측값 치환 : 결측값(np.nan) 
+                 replace(오류문자열, np.nan, inplace=True)
+'''  
+
+'''
+  범주형 데이터 : 값의 범위를 가진 데이터. 
+                describe() 함수에서 조회시 제외.
+  날짜 데이터 : pandas.date_range() : 날짜값을 범위 지정해서 조회
+               df["Date"] : datetime 형
+               df["Date"].dt.year : 년도
+               df["Date"].dt.month : 월
+               df["Date"].dt.day : 일
+               
+  형변환 : astype("자료형")   : str,int,float,category....    
+  
+  str : DataFrame의 요소들을 문자열처럼 사용. 문자열 함수 사용가능
+              df["aaa"].str.startsWidth("")...     
+              
+  === 그룹화 : DataFrame을 컬럼의 값으로 데이터 분리
+  groupby(컬럼명) : DataFrame 객체를 컬럼명의 값으로 분리.
+  
+  
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #날짜 데이터.
 #20220101 부터  이후 6까지일 날짜를 데이터 
 #date_range : 날짜의 범위를 지정
