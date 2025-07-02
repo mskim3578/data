@@ -1,3 +1,12 @@
+#matplot모듈을 이용하여 산점도 출력
+plt.figure(figsize=(10,5)) #새로운 그래프창 
+#scatter(x축데이터,y축데이터) : 그래프 종류 
+#df["mpg"] : x축데이터
+#df["weight"] : y축데이터
+plt.scatter(df["mpg"],df["weight"],c="coral",s=20)
+plt.show()
+
+
 
 '''
  -- 행정안전부 홈페이지 : www.mois.go.kr
