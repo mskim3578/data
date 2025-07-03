@@ -1,5 +1,17 @@
 
 '''
+  table : 표시할 데이터 
+  annot=True : 데이터값 표시 여부
+  fmt='d' : 10진 정수로 표시
+  linewidth=.5 : 여백, 간격 
+  cbar=False : 컬러바 표시 여부
+  cmap='YlGnBu' : 컬러맵, Greys
+https://matplotlib.org/3.2.1/tutorials/colors/colormaps.html     
+'''
+
+
+
+'''
   labels=['USA','JAPAN','EU'] : x축의 값. 3개의 그룹명
   vert=False : 가로형태의 박스그래프.
   sym 속성  : "r*"  : 이상치 표현기호 및 색상
