@@ -1,3 +1,11 @@
+'''
+데이터 속성 설명
+order_id : 주문번호
+quantity : 아이템의 주문수량
+item_name : 주문한 아이템의 이름
+choice_description : 주문한 아이템의 상세 선택 옵션
+item_price : 주문 아이템의 가격 정보
+'''
 
 '''
   table : 표시할 데이터 
