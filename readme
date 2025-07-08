@@ -1,3 +1,6 @@
+ class_names=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+         'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
 '''
 데이터 속성 설명
 order_id : 주문번호
