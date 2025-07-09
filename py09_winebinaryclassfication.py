@@ -206,8 +206,8 @@ def checkWine(index):
     test_wine_x=test_wine_x.reshape((1,12)) 
     #예측
     test_wine_pre=model.predict(test_wine_x) 
-    print(np.argmax(test_wine_pre),":",test_wine_np[-1]) 
-
+   # print(np.argmax(test_wine_pre),":",test_wine_np[-1]) #     수정 하였음
+    print(test_wine_np[-1],":",np.argmax(test_wine_pre)) 
 ########################   function end
 
 
