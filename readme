@@ -1,4 +1,16 @@
- class_names=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+ # 혼동행렬 조회하기
+    # 실제 값과 예측값의 비교를 위한 행렬
+    modelx_test=x_test.reshape(-1, 28*28)/255
+    results=model.predict(modelx_test)
+    results_y=np.argmax(results, axis=1)    
+    print(results_y.shape)
+
+
+
+
+
+
+class_names=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
          'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 '''
