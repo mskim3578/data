@@ -1,1 +1,5 @@
 col3 = [' Test No.', ' Coordinate', ' Soft Bin', ' Hard Bin', ' Time[s]', ' Result', ' Fail Item'] 
+
+
+cmap=plt.get_cmap('tab20')
+colors = [cmap(i) for i in range(cmap.N)]
