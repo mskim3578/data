@@ -1,45 +1,18 @@
-
-
-def lot_fail_one_timestamp(lot, spro):
-    global temp, timestamplist
-    lot_df=df_data[df_data['lotid']==lot]
-    timestamplist=lot_df['timestamp'].unique()
-    for timestamp in timestamplist:         
-            groups = lot_df[lot_df['timestamp']==timestamp].groupby('Fail Item')               
-            temp=lot_df[lot_df['timestamp']==timestamp]
-            temp2=temp[temp['Fail Item']=="'"]
-            pro=len(temp2)/len(temp)*100
-            plt.figure()
-            for name, group in groups:
-                   namelabel = name+"="+str(len(group))       
-                   color=colors[fail_item.index(name)]
-                   # print(namelabel, len(group), color)
-                   if name=="'":
-                    plt.scatter(group.col, group.row, label=namelabel,  color="lightcyan",
-                                   s=30, marker='s')
-                   else :
-                    plt.scatter(group.col, group.row, label=namelabel,  
-                                color=color,s=30, marker='s')       
-            plt.xticks(range(-8, 12))
-            if pro <= spro:
-                plt.title( f"{lot}[{timestamp}] :{pro:.2f}% 불량", color='red')
-            else:
-                plt.title( f"{lot}[{timestamp}] :{pro:.2f}%  우량")
-            plt.axhline(0, color='black', linestyle='--', linewidth=0.5)
-            plt.axvline(0, color='black', linestyle='--', linewidth=0.5)
-            plt.legend(fontsize=7)
-            # plt.axis("off")
-            plt.show()        
-      
-
-
-
-lot_fail_one_timestamp('1340040', 97)
-
-
-
-col3 = [' Test No.', ' Coordinate', ' Soft Bin', ' Hard Bin', ' Time[s]', ' Result', ' Fail Item'] 
-
-
-cmap=plt.get_cmap('tab20')
-colors = [cmap(i) for i in range(cmap.N)]
+def get_evaluation():
+    model.evaluate(x_testS,y_testS)
+    #평가하기
+    #혼동행렬 출력하기
+    results = model.predict(x_testS)
+    from sklearn.metrics import confusion_matrix
+    cm=confusion_matrix(np.argmax(y_testS,axis=-1),\
+                        np.argmax(results,axis=-1))
+    cm    
+    #혼동행렬을 heatmap으로 출력하기
+    import seaborn as sns
+    plt.figure(figsize = (7, 7))
+    sns.heatmap(cm, annot = True, fmt = 'd',cmap = 'Blues')
+    plt.xlabel('예측 label', fontsize = 15)
+    plt.ylabel('이미지 label', fontsize = 15)
+    # plt.xticks(np.arange(0, 2, 0.5), labels=[' ', '불량', ' ', '우량'])
+    # plt.yticks(np.arange(0, 2, 0.5), labels=[' ', '불량', ' ', '우량'])
+    plt.show()
