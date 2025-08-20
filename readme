@@ -1,18 +1,21 @@
-def get_evaluation():
-    model.evaluate(x_testS,y_testS)
-    #평가하기
-    #혼동행렬 출력하기
-    results = model.predict(x_testS)
-    from sklearn.metrics import confusion_matrix
-    cm=confusion_matrix(np.argmax(y_testS,axis=-1),\
-                        np.argmax(results,axis=-1))
-    cm    
-    #혼동행렬을 heatmap으로 출력하기
-    import seaborn as sns
-    plt.figure(figsize = (7, 7))
-    sns.heatmap(cm, annot = True, fmt = 'd',cmap = 'Blues')
-    plt.xlabel('예측 label', fontsize = 15)
-    plt.ylabel('이미지 label', fontsize = 15)
-    # plt.xticks(np.arange(0, 2, 0.5), labels=[' ', '불량', ' ', '우량'])
-    # plt.yticks(np.arange(0, 2, 0.5), labels=[' ', '불량', ' ', '우량'])
-    plt.show()
+# 키보드에서 초를 입력받아 몇시간 몇분 몇초인지 출력하기
+# input함수:키보드에서 입력받기.
+#           문자열형태로 입력받음.
+
+second = int(input("초를 입력하세요:"))
+print(second//3600,"시간",(second%3600)//60,"분",\
+      (second%60),"초")
+    
+# 연습문제 2 : 
+# 금액(3650)을 입력 받아 잔돈(500,100,50,1)으로 바꿔주는 프로그램을 작성 하기 
+# input함수:키보드에서 입력받기.
+#           문자열형태로 입력받음.
+
+
+money = int(input("금액을 입력하세요:"))
+print("500원 동전의 갯수", money//500) 
+print("100원 동전의 갯수", money%500//100)
+print("50원 동전의 갯수", money%100//50)
+print("10원 동전의 갯수", money%50//10)
+print("1원 동전의 갯수", money%10)
+ 
