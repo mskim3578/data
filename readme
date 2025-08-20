@@ -1,3 +1,73 @@
+8/20 연습문제 :
+########################  연습문제 
+'''
+연습문제 3
+           
+*****    
+ ****      
+  ***      
+   **      
+    *      
+'''  
+h=5  
+for i in range(h,0,-1) :
+   print(" " * (h-i),end="") 
+   print("*"*i)
+
+for i in range(h,0,-1) :
+    for j in range(h,0,-1) :
+        if j <= i:
+           print("*",end="") 
+        else: 
+           print(" ",end="") 
+
+    print()
+
+for i in range(0,h) :
+    for j in range(0,h) :
+        if j >= i:
+           print("*",end="") 
+        else: 
+           print(" ",end="") 
+
+    print()
+
+
+'''
+연습문제 4         
+    *     
+   **     
+  ***      
+ ****      
+*****      
+
+'''
+h=5   
+for i in range(1,h+1,1) :
+   print(" " * (h-i),end="") 
+   print("*"*i)
+   
+   
+ ################## 연습문제 
+#연습문제 1
+#두개의 리스트 데이터를 각각 한개식 리스트트로 생성하기기
+
+clist=['black','white']
+slist=['S','M','L']
+# [['black', 'S'], ['black', 'M'], ['black', 'L'], ['white', 'S'], ['white', 'M'], ['white', 'L']]
+
+tlist=[]
+for c in clist:
+    for s in slist:
+        tlist.append([c,s])
+print(tlist)
+  
+
+
+########################  연습문제 
+
+
+
 "10,20,50,60,30,40,50,60,30"
 
 
