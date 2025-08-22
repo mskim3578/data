@@ -1,0 +1,116 @@
+import pandas as pd
+import seaborn as sns #시각화모듈
+
+##################################################
+# titanic 데이터셋 연습(데이터 전처리)
+# seaborn 모듈에 저장된 데이터
+'''
+survived	생존여부
+pclass	좌석등급 (숫자)
+sex	성별 (male, female)
+age	나이
+sibsp	형제자매 + 배우자 인원수
+parch: 	부모 + 자식 인원수
+fare: 	요금
+embarked	탑승 항구
+class	좌석등급 (영문)
+who	성별 (man, woman)
+adult_male 성인남자여부 
+deck	선실 고유 번호 가장 앞자리 알파벳
+embark_town	탑승 항구 (영문)
+alive	생존여부 (영문)
+alone	혼자인지 여부
+'''
+
+#seaborn 모듈에 저장된 데이터셋 목록
+print(sns.get_dataset_names())
+
+#titanic데이터 로드. 
+titanic = sns.load_dataset("titanic")
+titanic.info()
+
+'''
+titanic.info()
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 15 columns):
+ #   Column       Non-Null Count  Dtype   
+---  ------       --------------  -----   
+ 0   survived     891 non-null    int64   
+ 1   pclass       891 non-null    int64   
+ 2   sex          891 non-null    object  
+ 3   age          714 non-null    float64 
+ 4   sibsp        891 non-null    int64   
+ 5   parch        891 non-null    int64   
+ 6   fare         891 non-null    float64 
+ 7   embarked     889 non-null    object  
+ 8   class        891 non-null    category
+ 9   who          891 non-null    object  
+ 10  adult_male   891 non-null    bool    
+ 11  deck         203 non-null    category
+ 12  embark_town  889 non-null    object  
+ 13  alive        891 non-null    object  
+ 14  alone        891 non-null    bool    
+dtypes: bool(2), category(2), float64(2), int64(4), object(5)
+memory usage: 80.7+ KB
+'''
+titanic.head()
+
+#pclass,class 데이터만 조회하기
+titanic[["pclass","class"]].head()
+
+#컬럼별 건수 조회하기
+titanic.count() #결측값을 제외한 데이터
+# 건수 중 가장 작은 값 조회하기
+type(titanic.count())
+titanic.count().min()
+# 건수 중 가장 작은 값의 인덱스 조회하기
+titanic.count().idxmin()
+
+
+#titanic의 age,fare 컬럼만을 tidf 데이터셋에 저장하기
+tidf = titanic[["age","fare"]]
+tidf.info()
+
+#tidf 데이터의 평균 데이터 조회
+tidf.mean()
+
+#  tidf 데이터의 나이 조회. 최대 나이를 가진 5개의 나이 조회
+t1=tidf.sort_values(by='age', ascending=False)['age'].head()
+
+#tidf 데이터의 나이별 인원수를 조회. 최대 인원수를 가진 5개의 나이 조회
+# value_counts sort됨
+tidf.age.value_counts().head()
+
+#tidf 데이터의 인원수가 많은 나이 10개 조회 
+tidf.age.value_counts().head(10)
+
+#tidf 데이터의 최대나이와 최소나이 조회
+tidf.age.max()
+tidf.age.min()
+
+#승객 중 최고령자의 정보 조회하기
+tidf.age.max()
+tidf.age.idxmax()
+
+t1=tidf[tidf["age"]==tidf["age"].max()]
+t1.unique() # dataframe 이여서 error
+t2=tidf.iloc[tidf.age.idxmax()]
+t2.unique()
+
+# 데이터에서 생존건수(342), 사망건수(549) 조회하기
+titanic["survived"].value_counts()
+titanic["alive"].value_counts()
+
+
+#성별로 생존건수 조회하기
+cnt=titanic[["sex","survived"]].value_counts()
+cnt.index
+
+# 컬럼 : 변수,피처 용어사용.
+# 상관 계수 : -1 ~ 1사이의 값. 변수의 상관관계 수치로 표현
+# correlation coefficient
+titanic.corr()  #문자 때문에 error
+titanic.info()
+titanic[["survived","age", "fare"]].corr()
+
