@@ -1,3 +1,18 @@
+#seaborn 데이터에서 mpg 데이터 로드하기
+'''
+mpg : 연비
+cylinders : 실린더 수
+displacement : 배기량
+horsepower : 출력
+weight : 차량무게
+acceleration : 가속능력
+model_year : 출시년도
+origin : 제조국
+name : 모델명
+'''
+
+
+
 ##################################################
 # titanic 데이터셋 연습(데이터 전처리)
 # seaborn 모듈에 저장된 데이터
