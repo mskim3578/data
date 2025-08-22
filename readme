@@ -1,3 +1,8 @@
+
+
+
+
+
 #seaborn 데이터에서 mpg 데이터 로드하기
 '''
 mpg : 연비
@@ -78,6 +83,20 @@ print(getMean2([]))
 
 
 
+df=pd.read_csv("data/jeju1.csv")
+df.to_csv("data/df_jeju1.csv",index=False) #index 제외
+df.to_csv("data/df_jeju2.csv")  #index 포함
+#한개의 sheet 읽기
+df = pd.read_excel\
+("data/sales_2015.xlsx","january_2015",index_col=None)
+type(df) #DataFrame 객체
+df
+df.info()
+#전체 sheet를 읽음
+df = pd.read_excel\
+("data/sales_2015.xlsx",sheet_name=None,index_col=None)
+df
+type(df) #딕셔너리 객체 데이터 
 
 
 
