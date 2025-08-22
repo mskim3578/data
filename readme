@@ -1,3 +1,50 @@
+############## function 연습문제
+#3 map 방식
+# 리스트의 각 요소에 10을 더하여 새로운 리스트를 작성하시요
+# 1) 일반 함수
+# 2) 람다 함수수 
+mylist1=[1,2,3,4,5]
+def add10(n) :
+    return n+10
+
+mylist2=list(map(add10, mylist1))
+print(mylist2)
+
+
+#4 map 람다방식 
+mylist2=list(map(lambda n:n+10, mylist1))
+print(mylist2)
+[11, 12, 13, 14, 15]
+
+#
+# 리스트의 평균을 구해주는 함수 getMean를  구현 하시오 
+# 1) 일반 함수
+# 2) lambda 함수 
+
+###---연습문제 2
+def getMean(li) :
+    if len(li)>0 :
+        return sum(li)/len(li)
+    else:
+        return 0
+
+
+list1 = [1,2,3,4,5,6]
+print(getMean(list1))
+print(getMean([]))
+
+# lambda  p : 명령문 
+getMean2 = lambda li : sum(li)/len(li) if len(li)>0 else 0
+print(getMean2(list1))
+print(getMean2([]))
+
+
+
+
+
+
+
+###############
 df = pd.DataFrame([[15,'남','서울중'],[17,'여','서울여고'],
                    [17,'남','서울고']])
 df
