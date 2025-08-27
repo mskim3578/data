@@ -1,5 +1,22 @@
 
 
+#절도검거율과cctv 회귀선과 산점도 출력하기
+#회기선 구하기 (x, y, 차수)
+fp1 = np.polyfit(data_result['소계'], data_result['절도검거율'], 2) 
+f1=np.poly1d(fp1) #회귀선을 위한 함수
+fx=np.linspace(500,4000,100)   
+
+
+
+#data_result 데이터에 오차 컬럼을 추가하기
+# 실제 검거율과 기대검거율의 차이의 절대값 저장
+data_result["오차"]=np.abs(data_result["절도검거율"]-f1(data_result['소계']))
+#오차의 내림차순으로 정렬하여 df_sort 데이터 저장
+df_sort = data_result.sort_values(by="오차", ascending=False)
+df_sort 
+
+
+
 
 
 
