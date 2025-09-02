@@ -1,3 +1,28 @@
+
+model = Sequential([
+    Conv2D(input_shape=(112, 112, 3),kernel_size=(3,3),
+                   filters=32, padding='same', activation='relu'),
+    Conv2D(kernel_size=(3,3), filters=64, padding='same',
+                                               activation='relu'),
+    MaxPool2D(pool_size=(2,2)),
+    Dropout(rate=0.5), 
+    Conv2D(kernel_size=(3,3), filters=128, 
+           padding='same',activation='relu'),
+    Conv2D(kernel_size=(3,3), filters=256, padding='valid',
+           activation='relu'),
+    MaxPool2D(pool_size=(2,2)),
+    Dropout(rate=0.5),
+    Flatten(), #평탄화층(레이어).1차원형태의 배열로 변경 
+    Dense(units=512, activation='relu'),
+    Dropout(rate=0.5),
+    Dense(units=256, activation='relu'),
+    Dropout(rate=0.5),
+    Dense(units=11, activation='sigmoid') #출력층. 11개의 값
+])                            
+model.summary()
+
+
+
 #########################################################
 # 저장된 파일을 읽어서 데이터 분석하기
 # console restart
