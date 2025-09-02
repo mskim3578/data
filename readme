@@ -1,4 +1,7 @@
 
+class_names=['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+         'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
 
 #절도검거율과cctv 회귀선과 산점도 출력하기
 #회기선 구하기 (x, y, 차수)
