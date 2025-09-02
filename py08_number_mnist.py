@@ -119,7 +119,7 @@ def image_save(num):
     im.save(f"img/num{num}.jpg", "jpeg") 
 
    
-image_save(3)    
+image_save(100)    
     
 results_y[:10]    
 originy_test[:10]    
@@ -133,6 +133,7 @@ pro_evaluation(model,history)
 pro_predict(model, range(len(originx_test)), False) # 틀린예측
 pro_predict(model, range(60,76), True)  # 전체   
 
+model.save('flask_number/mnist.keras')
 
 
 
