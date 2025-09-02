@@ -1,3 +1,16 @@
+#########################################################
+# 저장된 파일을 읽어서 데이터 분석하기
+# console restart
+import pandas as pd
+train_df = pd.read_csv("./colordata/train.csv")
+train_df.info()
+val_df = pd.read_csv("./colordata/val.csv")
+val_df.info()
+test_df = pd.read_csv("./colordata/test.csv")
+test_df.info()
+
+
+#####################################################
 
 #csv 파일을 위한 DataFrame 생성
 train_df = pd.DataFrame(    
