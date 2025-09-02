@@ -1,4 +1,31 @@
 
+#csv 파일을 위한 DataFrame 생성
+train_df = pd.DataFrame(    
+{'image':train_x, 'black':train_y[:, 0], 'blue':train_y[:, 1],
+'brown':train_y[:, 2], 'green':train_y[:, 3], 'red':train_y[:, 4],
+'white':train_y[:, 5], 'dress':train_y[:, 6], 'shirt':train_y[:, 7],
+'pants':train_y[:, 8], 'shorts':train_y[:, 9], 'shoes':train_y[:, 10]})
+train_df.info()
+
+
+val_df = pd.DataFrame(
+{'image':val_x, 'black':val_y[:, 0], 'blue':val_y[:, 1],
+'brown':val_y[:, 2], 'green':val_y[:, 3], 'red':val_y[:, 4],
+'white':val_y[:, 5], 'dress':val_y[:, 6], 'shirt':val_y[:, 7],
+'pants':val_y[:, 8], 'shorts':val_y[:, 9], 'shoes':val_y[:, 10]})
+val_df.info()
+
+test_df = pd.DataFrame(
+{'image':test_x, 'black':test_y[:, 0], 'blue':test_y[:, 1],
+'brown':test_y[:, 2], 'green':test_y[:, 3], 'red':test_y[:, 4],
+'white':test_y[:, 5], 'dress':test_y[:, 6], 'shirt':test_y[:, 7],
+'pants':test_y[:, 8], 'shorts':test_y[:, 9], 'shoes':test_y[:, 10]})
+test_df.info()
+
+
+
+
+
 #다중레이블 생성을 위한 함수.
 def check_cc(color, clothes): #black,dress
 #np.zeros(11,) : 요소의 갯수가 11개이고 값이 0인 1차원배열 생성    
