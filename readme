@@ -1,4 +1,26 @@
 
+#다중레이블 생성을 위한 함수.
+def check_cc(color, clothes): #black,dress
+#np.zeros(11,) : 요소의 갯수가 11개이고 값이 0인 1차원배열 생성    
+    labels = np.zeros(11,)
+    if(color == 'black'):       labels[0] = 1
+    elif(color == 'blue'):      labels[1] = 1
+    elif(color == 'brown'):     labels[2] = 1
+    elif(color == 'green'):     labels[3] = 1
+    elif(color == 'red'):       labels[4] = 1
+    elif(color == 'white'):     labels[5] = 1
+    #의류종류 설정
+    if(clothes == 'dress'):     labels[6] = 1
+    elif(clothes == 'shirt'):   labels[7] = 1
+    elif(clothes == 'pants'):   labels[8] = 1
+    elif(clothes == 'shorts'):  labels[9] = 1
+    elif(clothes == 'shoes'):   labels[10] = 1
+    return labels  #[10000010000]
+
+
+
+
+
 https://www.kaggle.com/trolukovich/apparel-images-dataset
 
 
