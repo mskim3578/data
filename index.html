@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title></title>
+<title>{{name}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
@@ -16,13 +16,18 @@
   <p><input type="submit" value="Upload"></p>
   
   <p>
-  <label>upload image name : </label></p>
+  <label>upload image name :{{image_file}}</label></p>
   
   <p>
-  <label>image 숫자 확인 : </label></p>
+  <label>image 숫자 확인 : {{num}}</label></p>
  
 </form>
+{% if true %}
 
+<img src="/static/{{image_file}}">
+
+
+{% endif %}
 </div>
 </body>
 </html> 
